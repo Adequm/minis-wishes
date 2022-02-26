@@ -99,6 +99,7 @@ export default {
       deep: true,
       handler(changedWish) {
         if(changedWish.time) return;
+        if(this.openedModalName == 'settings') return;
         this.openedModalName = null;
       }
     }
