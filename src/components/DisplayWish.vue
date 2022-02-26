@@ -2,8 +2,8 @@
   <div class="container" @click="$emit('click')">
     <div class="container__image" :icon="icon" :class="{ open }">
 
-      <img :src="`../icons/${ icon }.png`"/>
-      <img :src="`../icons/${ icon }.png`"/>
+      <img :src="`./icons/${ icon }.png`"/>
+      <img :src="`./icons/${ icon }.png`"/>
 
 
       <div class="container__wish">
