@@ -102,7 +102,7 @@ export default {
     "robot", "broccoli", "clown", "coconut", "kiwi";
     @each $icon in $icons {
       &[icon=#{$icon}]::after, &[icon=#{$icon}]::before {
-        background-image: url("/icons/#{$icon}.png");
+        background-image: url("./icons/#{$icon}.png");
       }
     }
 
