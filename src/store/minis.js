@@ -17,8 +17,9 @@ store.getters = {
     const minisName = location.pathname.split('/')[1].replace('minis-', '');
     return translateJSON?.[minisLang]?.[minisName] || {};
   },
-  translate({}, { translateOfMinis }) {
-    return path => _.get(translateOfMinis, path, translateOfMinis.error || '%err%');
+  translate({ translateJSON, minisLang }, { translateOfMinis }) {
+    const errorMessage = _.get(translateJSON?.[minisLang], 'default.error', '%err%');
+    return path => _.get(translateOfMinis, path, errorMessage);
   },
   themeMain({ themesJSON, minisThemeMain }) {
     const isExist = themesJSON?.main?.[minisThemeMain];
