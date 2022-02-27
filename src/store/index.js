@@ -34,7 +34,7 @@ const persistedMinis = [
   'minis.themesJSON', 'minis.translateJSON', 'minis.minisJSON',
 ];
 const persistedLocal = ['wishType', 'changedWish'];
-const projectKey = `minis-${ location.pathname.split('/')[1] }`;
+const projectKey = location.pathname.split('/')[1];
 store.modules = { minis: minisModule };
 store.plugins = [
   createMutationsSharer({ predicate: () => [...persistedMinis, ...persistedLocal] }),

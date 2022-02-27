@@ -1,3 +1,3 @@
 module.exports = {
-  publicPath: '/wishes/'
+  publicPath: '/minis-wishes/'
 }

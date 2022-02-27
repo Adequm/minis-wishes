@@ -14,7 +14,7 @@ store.state = () => ({
 
 store.getters = {
   translateOfMinis({ translateJSON, minisLang }) {
-    const minisName = location.pathname.split('/')[1];
+    const minisName = location.pathname.split('/')[1].replace('minis-', '');
     return translateJSON?.[minisLang]?.[minisName] || {};
   },
   translate({}, { translateOfMinis }) {
