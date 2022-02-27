@@ -7,7 +7,7 @@
       maxHeight: isDesktop ? `${ containerHeight }px` : '100vh',
     }"
   >
-    <Icon v-if="!isPageLoad" type="loader" class="loader" rotate/>
+    <Icon v-if="!isPageLoad" type="loader" class="loader" :size="100" rotate/>
 
     <div v-else class="minis__wrapper">
       <SettingsDesktop
@@ -145,7 +145,6 @@ body {
   overflow: hidden;
 
   .loader {
-    width: 30%;
     height: 100%;
     margin: auto;
     display: block;

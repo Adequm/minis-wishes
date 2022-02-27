@@ -5,11 +5,12 @@
     <Icon type="heart" @click.prevent="$emit('switchTheme', 'special')"/>
     <Icon type="globe" @click.prevent="$emit('switchLang')"/>
     <Icon type="maximize-2" @click.prevent="$emit('switchFullscreen')"/>
+    <!-- <Icon type="help-circle"/> -->
   </div>
 </template>
 
 <script>
-import Icon from './Icon.vue'
+import Icon from './Icon.vue';
 
 export default {
   name: 'SettingsDesktop',
@@ -58,11 +59,11 @@ export default {
   }
 
   &.isClosedSettings {
-    &::after, & > svg:nth-child(n+2) {
+    &::after, & > .icon:nth-child(n+2) {
       transform: translateX(calc(-100% - 20px))
     }
   }
-  & > svg {
+  & > .icon {
     cursor: pointer;
     transition: transform .2s;
     width: 100%;

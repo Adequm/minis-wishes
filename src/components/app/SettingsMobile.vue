@@ -1,9 +1,26 @@
 <template>
   <div class="settings" :class="{ isClosedSettings: value }">
-    <Icon :type="themeIcon" @click.prevent="$emit('switchTheme', 'main')"/>
-    <Icon type="heart" @click.prevent="$emit('switchTheme', 'special')"/>
-    <Icon type="globe" @click.prevent="$emit('switchLang')"/>
-    <Icon v-if="isWidthMore768" type="minimize-2" @click.prevent="$emit('switchFullscreen')"/>
+    <Icon 
+      :type="themeIcon" 
+      :size="30"
+      @click.prevent="$emit('switchTheme', 'main')"
+    />
+    <Icon 
+      type="heart" 
+      :size="30"
+      @click.prevent="$emit('switchTheme', 'special')"
+    />
+    <Icon 
+      type="globe" 
+      :size="30"
+      @click.prevent="$emit('switchLang')"
+    />
+    <Icon 
+      v-if="isWidthMore768" 
+      type="minimize-2" 
+      :size="30"
+      @click.prevent="$emit('switchFullscreen')"
+    />
   </div>
 </template>
 
@@ -34,10 +51,8 @@ export default {
   align-items: center;
   justify-content: space-evenly;
 
-  & > svg {
+  & > .icon {
     cursor: pointer;
-    width: 30px;
-    height: 30px;
     margin: 15px;
     &:hover {
       color: var(--text-color);
