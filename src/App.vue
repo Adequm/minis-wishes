@@ -7,7 +7,7 @@
       maxHeight: isDesktop ? `${ containerHeight }px` : '100vh',
     }"
   >
-    <Icon v-if="!isPageLoad" type="loader" class="loader" :size="100" rotate/>
+    <Icon v-if="!isPageLoad" type="time-oclock" class="loader" :size="100" rotate/>
 
     <div v-else class="minis__wrapper">
       <SettingsDesktop

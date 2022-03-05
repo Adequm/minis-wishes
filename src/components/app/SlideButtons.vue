@@ -5,13 +5,13 @@
       class="slide-button" 
       :disabled="lodash.isBoolean(isBeginning) && isBeginning"
       @click="$emit('slidePrev') && setSlide(-1)">
-      <Icon type="chevrons-left"/>
+      <Icon type="angle-double-small-left"/>
     </button>
     <button 
       class="slide-button" 
       :disabled="lodash.isBoolean(isEnd) && isEnd"
       @click="$emit('slideNext') && setSlide(1)">
-      <Icon type="chevrons-right"/>
+      <Icon type="angle-double-small-right"/>
     </button>
 
   </div>

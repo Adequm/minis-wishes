@@ -49,7 +49,7 @@ export default {
   &__content {
     max-width: 60vw;
     border-radius: 10px;
-    padding: 20px 10px;
+    padding: 10px;
     background: var(--main-bg-color);
     color: var(--text-color);
     z-index: 2;

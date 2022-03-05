@@ -6,7 +6,7 @@
       @click.prevent="$emit('switchTheme', 'main')"
     />
     <Icon 
-      type="heart" 
+      type="palette" 
       :size="30"
       @click.prevent="$emit('switchTheme', 'special')"
     />
@@ -17,7 +17,7 @@
     />
     <Icon 
       v-if="isWidthMore768" 
-      type="minimize-2" 
+      type="compress-alt" 
       :size="30"
       @click.prevent="$emit('switchFullscreen')"
     />

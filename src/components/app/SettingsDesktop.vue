@@ -1,10 +1,30 @@
 <template>
   <div class="settings" :class="{ isClosedSettings: value }">
-    <Icon type="settings" @click.prevent="$emit('input', !value)"/>
-    <Icon :type="themeIcon" @click.prevent="$emit('switchTheme', 'main')"/>
-    <Icon type="heart" @click.prevent="$emit('switchTheme', 'special')"/>
-    <Icon type="globe" @click.prevent="$emit('switchLang')"/>
-    <Icon type="maximize-2" @click.prevent="$emit('switchFullscreen')"/>
+    <Icon 
+      type="settings" 
+      @click.prevent="$emit('input', !value)"
+      :size="22"
+    />
+    <Icon 
+      :type="themeIcon" 
+      @click.prevent="$emit('switchTheme', 'main')"
+      :size="22"
+    />
+    <Icon 
+      type="palette" 
+      @click.prevent="$emit('switchTheme', 'special')"
+      :size="22"
+    />
+    <Icon 
+      type="globe" 
+      @click.prevent="$emit('switchLang')"
+      :size="22"
+    />
+    <Icon 
+      type="expand-arrows-alt" 
+      @click.prevent="$emit('switchFullscreen')"
+      :size="22"
+    />
     <!-- <Icon type="help-circle"/> -->
   </div>
 </template>

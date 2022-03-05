@@ -1,19 +1,19 @@
 <template>
-  <div class="icon" :area-text="text" :side="side">
-    <svg
-      fill="none"
-      :width="size || width"
-      :height="size || height"
-      :stroke="color"
-      :stroke-width="strokeWidth"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      :class="{ rotate }"
-      @click="$emit('click', $event)"
-    >
-      <use :href="`./feather-sprite.svg#${ type }`"/>
-      <div v-if="text" v-text="text"/>
-    </svg>
+  <div 
+    class="icon" 
+    :area-text="text" 
+    :side="side"
+    @click="$emit('click', $event)"
+  >
+    <i
+      :class="[`fi fi-${ border }-${ type }`, { rotate }]"
+      :style="{
+        fontSize: `${ size }px`,
+        maxHeight: `${ size }px`,
+        maxWidth: `${ size }px`,
+        lineHeight: 1,
+      }"
+    />
   </div>
 </template>
 
@@ -23,31 +23,22 @@ export default {
 
   props: {
     type: String,
-    size: [Number, String],
+    size: {
+      type: Number,
+      default: 20,
+    },
+    border: {
+      type: String,
+      default: 'rs'
+    },
     text: String,
     side: {
       type: String,
       default: 'left',
     },
-    width: {
-      type: Number,
-      default: 24,
-    },
-    height: {
-      type: Number,
-      default: 24,
-    },
-    strokeWidth: {
-      type: Number,
-      default: 2,
-    },
     rotate: {
       type: Boolean,
       default: false,
-    },
-    color: {
-      type: String,
-      default: 'currentColor',
     },
   },
 };
@@ -93,7 +84,7 @@ div.icon {
   }
 }
 
-svg {
+i {
   z-index: 1;
   &.rotate {
     animation: rotate 2s linear infinite;
