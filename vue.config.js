@@ -2,6 +2,6 @@ module.exports = {
   publicPath: '/minis-wishes/',
   pwa: {
     name: 'Пожелания',
-    themeColor: '#14171E',
+    themeColor: '#333333',
   }
 }
