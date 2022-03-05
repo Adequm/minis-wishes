@@ -109,6 +109,15 @@ export default {
   computed: {
     ...mapState(['changedWish']),
   },
+
+  beforeMount() {
+    document.body.addEventListener('click', event => {
+      if(document.body !== event.path[0]) return;
+      if(!this.isDesktop) return;
+      if(this.isClosedSettings) return;
+      this.isClosedSettings = true;
+    });
+  },
 };
 </script>
 
