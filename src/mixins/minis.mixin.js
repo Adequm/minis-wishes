@@ -33,11 +33,9 @@ export default {
 
   computed: {
     ...mapGetters([
-        'translate', 
-        'translateOfMinis', 
-        'themeMain',
-        'themeSpecialName',
-        'themeSpecial'
+      'themeMain',
+      'themeSpecialName',
+      'themeSpecial'
     ]),
     ...mapState({ 
       minisTheme: state => state.minis.minisTheme,

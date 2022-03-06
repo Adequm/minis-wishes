@@ -13,14 +13,6 @@ store.state = () => ({
 });
 
 store.getters = {
-  translateOfMinis({ translateJSON, minisLang }) {
-    const minisName = location.pathname.split('/')[1].replace('minis-', '');
-    return translateJSON?.[minisLang]?.[minisName] || {};
-  },
-  translate({ translateJSON, minisLang }, { translateOfMinis }) {
-    const errorMessage = _.get(translateJSON?.[minisLang], 'default.error', '%err%');
-    return path => _.get(translateOfMinis, path, errorMessage);
-  },
   themeMain({ themesJSON, minisThemeMain }) {
     const isExist = themesJSON?.main?.[minisThemeMain];
     return isExist ? themesJSON.main[minisThemeMain] : themesJSON?.main?.dark;
