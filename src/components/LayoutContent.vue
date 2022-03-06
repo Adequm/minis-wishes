@@ -7,9 +7,10 @@
     }"
   >
 
-    <div class="minis__header">
-      Желаю:
-    </div>
+    <div 
+      class="minis__header"
+      v-text="translate('header') + ':'"
+    />
 
     <div class="minis__display">
       <div class="minis__body">
@@ -33,7 +34,7 @@
           class="minis__button minis__button-change" 
           :disabled="checkTime"
           @click.prevent="changeWishHandler"
-          v-text="checkTimeFormat || 'Выбрать'"
+          v-text="checkTimeFormat || translateDef('change')"
         />
         <div 
           v-if="!isDesktop" 
@@ -54,10 +55,12 @@ import Icon from './app/Icon';
 import LayoutWish from './LayoutWish';
 
 import { mapState, mapMutations } from 'vuex';
+import translateMixin from '../mixins/translate.mixin';
 
 export default {
   name: 'LayoutContent',
 
+  mixins: [translateMixin],
   components: {
     Icon,
     LayoutWish,
