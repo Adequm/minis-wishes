@@ -4,6 +4,7 @@ import createPersistedState from 'vuex-persistedstate';
 import createMutationsSharer from 'vuex-shared-mutations';
 import _ from 'lodash';
 
+const projectKey = location.pathname.split('/')[1];
 import wishes from '../assets/wishes.json';
 import wishesTypes from '../assets/wishesTypes.json';
 import minisModule from './minis';
@@ -12,6 +13,7 @@ const store = {};
 Vue.use(Vuex);
 
 store.state = () => ({
+  projectKey: projectKey.split('-').slice(-1)[0],
   wishes,
   wishesTypesList: _.shuffle(wishesTypes),
   wishType: 'prawn',
@@ -34,7 +36,6 @@ const persistedMinis = [
   'minis.themesJSON', 'minis.translateJSON', 'minis.minisJSON',
 ];
 const persistedLocal = ['wishType', 'changedWish'];
-const projectKey = location.pathname.split('/')[1];
 store.modules = { minis: minisModule };
 store.plugins = [
   createMutationsSharer({ predicate: () => [...persistedMinis, ...persistedLocal] }),
