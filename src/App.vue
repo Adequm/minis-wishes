@@ -7,6 +7,8 @@
       maxHeight: isDesktop ? `${ containerHeight }px` : '100vh',
     }"
   >
+    <Icon class="flower" type="flower-tulip" :size="22"/>
+
     <Icon v-if="!isPageLoad" type="time-oclock" class="loader" :size="100" rotate/>
 
     <div v-else class="minis__wrapper">
@@ -154,6 +156,18 @@ body {
   background-color: #333;
   min-height: 100vh;
   overflow: hidden;
+
+  .flower {
+    position: absolute !important;
+    bottom: 10px;
+    left: 10px;
+    cursor: pointer;
+    color: var(--special-color);
+    opacity: .25;
+    &:hover {
+      opacity: 1;
+    }
+  }
 
   .loader {
     height: 100%;
