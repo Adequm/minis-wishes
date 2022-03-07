@@ -23,7 +23,7 @@ export default {
             ctx.globalCompositeOperation = 'source-in';
 
             ctx.rect(0, 0, size, size);
-            ctx.fillStyle = this.themeSpecial.normal;
+            ctx.fillStyle = this.themeSpecial?.normal;
             ctx.fill();
 
             const linkEl = document.querySelector(`link[sizes="${ size }x${ size }"]`);
