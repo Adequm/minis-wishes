@@ -45,7 +45,7 @@
         <div 
           v-if="openedModalName == 'wish'"
           style="text-align: center;" 
-          v-text="changedWish.text"
+          v-text="lodash.get(wishes, changedWish.textId, translateErrorMessage)"
         />
       </AppModal>
 
@@ -67,13 +67,14 @@ import minisMixin from './mixins/minis.mixin';
 import resizeMixin from './mixins/resize.mixin';
 import faviconMixin from './mixins/favicon.mixin';
 import translateMixin from './mixins/translate.mixin';
+
 import Icon from './components/app/Icon';
 import SettingsDesktop from './components/app/SettingsDesktop';
 import SettingsMobile from './components/app/SettingsMobile';
 import AppModal from './components/app/AppModal';
 import LayoutContent from './components/LayoutContent';
 
-import { mapState } from 'vuex';
+import { mapState, mapGetters } from 'vuex';
 
 export default {
   components: {
@@ -111,6 +112,7 @@ export default {
 
   computed: {
     ...mapState(['changedWish']),
+    ...mapGetters(['wishes']),
   },
 
   beforeMount() {

@@ -9,8 +9,19 @@
 
     <div 
       class="minis__header"
-      v-text="translate('header') + ':'"
-    />
+      :style="{ 
+        cursor: isNotChagedSlide ? 'pointer' : 'default',
+        fontSize: isNotChagedSlide ? '20px' : '24px',
+      }"
+      @click="isNotChagedSlide && slideToChangedWish()"
+    >
+      <span v-text="headerText"/>
+      <span 
+        v-if="isNotChagedSlide" 
+        style="color: var(--text-color); margin-left: .25em"
+        v-text="translate('display.description')"
+      />
+    </div>
 
     <div class="minis__display">
       <div class="minis__body">
@@ -19,8 +30,9 @@
           :appWidth="appWidth"
           :bodyHeight="bodyHeight"
           :changedWish="changedWish"
+          :wishesTypes="wishesTypes"
           :wishesTypesList="wishesTypesList"
-          :slideStartIndex="lodash.findIndex(wishesTypesList, { icon: wishType })"
+          :slideStartIndex="lodash.indexOf(wishesTypesList, wishType)"
           :wishType="wishType"
           @changeWishType="changeWishType"
           @changeWish="changeWishHandler"
@@ -54,13 +66,15 @@ import _ from 'lodash';
 import Icon from './app/Icon';
 import LayoutWish from './LayoutWish';
 
-import { mapState, mapMutations } from 'vuex';
 import translateMixin from '../mixins/translate.mixin';
+
+import { mapState, mapGetters, mapMutations } from 'vuex';
 
 export default {
   name: 'LayoutContent',
 
   mixins: [translateMixin],
+
   components: {
     Icon,
     LayoutWish,
@@ -79,13 +93,21 @@ export default {
     checkTime: null,
   }),
 
+  watch: {
+    minisLang: {
+      immediate: true,
+      handler: async function(lang) {
+        try {
+          const wishes = await fetch(`./wishes.${lang}.json`).then(d => d.json());
+          this.addWishesByLang({ lang, wishes });
+        } catch(err) {}
+      }
+    }
+  },
+
   computed: {
-    ...mapState([
-      'wishes', 
-      'wishType', 
-      'changedWish',
-      'wishesTypesList',
-    ]),
+    ...mapGetters(['wishes', 'wishesTypes', 'wishesTypesList', 'maxWishesLength']),
+    ...mapState(['wishType', 'changedWish']),
     gridTemplateRows() {
       const header = Math.min(this.appHeight * 0.1, 60);
       const content = this.appHeight - header;
@@ -98,22 +120,36 @@ export default {
       const minutes = new Date(this.checkTime).getMinutes().toString().padStart(2, 0);
       const seconds = new Date(this.checkTime).getSeconds().toString().padStart(2, 0);
       return `${ hour }:${ minutes }:${ seconds }`;
-    }
+    },
+    isNotChagedSlide() {
+      return this.changedWish.type && this.wishType !== this.changedWish.type;
+    },
+    headerText() {
+      const text = _.get(this.wishesTypes, this.changedWish.type);
+      return this.isNotChagedSlide ? text : this.translate('header') + ':';
+    },
   },
 
   methods: {
-    ...mapMutations(['changeWishType', 'changeWish']),
+    ...mapMutations(['changeWishType', 'changeWish', 'addWishesByLang']),
 
     changeWishHandler() {
       if(this.checkTime) return;
       const length = this.wishesTypesList.length;
-      const typeIndex = _.findIndex(this.wishesTypesList, { icon: this.wishType });
+      const typeIndex = _.indexOf(this.wishesTypesList, this.wishType);
       const type = this.wishesTypesList[typeIndex % length];
       this.changeWish({
-        type: type.icon,
-        text: _.sample(this.wishes),
+        type: type,
+        textId: _.random(0, this.maxWishesLength),
         time: Date.now() + new Date().getTimezoneOffset()*60*1000,
       });
+    },
+
+    slideToChangedWish() {
+      const swiperRef = this.$refs.layoutWish.swiperRef;
+      const slideIndex = _.indexOf(this.wishesTypesList, this.changedWish.type);
+      const currentSlideIndex = (slideIndex + 1) % this.wishesTypesList.length;
+      _.invoke(swiperRef, 'slideTo', currentSlideIndex);
     },
 
     keydown({ key, shiftKey }) {
@@ -140,8 +176,8 @@ export default {
       requestAnimationFrame(() => {
         const time = Date.now() - 1000*60*60*4 + new Date().getTimezoneOffset()*60*1000;
         this.checkTime = time < this.changedWish.time ? this.changedWish.time - time + 1000 : null;
-        if(!this.checkTime) {
-          this.changeWish({ type: null, time: null, text: null });
+        if(!this.checkTime && this.changedWish?.type) {
+          this.changeWish({ type: null, time: null, textId: null });
         }
       })
     }, 100);

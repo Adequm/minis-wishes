@@ -18,7 +18,7 @@
 
       <div class="container__text">
         <span v-text="text"/>
-        <span style="color: var(--text-color)" v-text="'с пожеланием'"/>
+        <span style="color: var(--text-color)" v-text="translate('display.description')"/>
       </div>
     </div>
   </div>
@@ -27,8 +27,12 @@
 <script>
 import Icon from './app/Icon';
 
+import translateMixin from '../mixins/translate.mixin';
+
 export default {
   name: 'DisplayWish',
+
+  mixins: [translateMixin],
 
   components: {
     Icon,

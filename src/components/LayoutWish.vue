@@ -2,16 +2,20 @@
   <div id="layout-wish" class="layout swiper-horizontal">
 
     <div class="display">
-      <Swiper ref="swiper" @activeIndexChange="activeIndexChange" loop>
+      <Swiper 
+        v-if="lodash.size(wishesTypes)"
+        ref="swiper" 
+        @activeIndexChange="activeIndexChange" 
+        loop
+      >
         <SwiperSlide
-          v-for="({ icon, text }, wishTypeIndex) of wishesTypesList"
-          :key="wishTypeIndex"
+          v-for="([icon, text]) of lodash.entries(wishesTypes)"
+          :key="icon"
         >
           <DisplayWish 
             :text="text" 
             :icon="icon"
             :open="icon == changedWish.type"
-            @openGift="console.log"
             @click="$emit('changeWish')"
             @openModal="$emit('openModal', $event)"
           />
@@ -48,12 +52,12 @@ export default {
     bodyHeight: Number,
     changedWish: Object,
     slideStartIndex: Number,
+    wishesTypes: Object,
     wishesTypesList: Array,
     wishType: String,
   },
 
   data: () => ({
-    console,
     lodash: _,
     swiperRef: null,
     slideHeight: 0,
@@ -67,6 +71,10 @@ export default {
     bodyHeight: {
       immediate: true,
       handler: 'setSlideHeight',
+    },
+    wishesTypes: {
+      deep: true,
+      handler: 'init',
     },
   },
 
@@ -84,6 +92,14 @@ export default {
   },
 
   methods: {
+    init() {
+      this.swiperRef = this.$refs.swiper?.swiperRef;
+      this.slideLength = this.swiperRef?.slides?.length || 0;
+      const slideIndex = (this.slideStartIndex + 1) % this.wishesTypesList.length;
+      _.invoke(this.swiperRef, 'slideTo', slideIndex, 0);
+      this.$nextTick(this.setSlidesSize);
+    },
+
     setSlideHeight() {
       this.$nextTick(() => {
         this.slideHeight = this.$refs?.swiper?.$el?.offsetHeight;
@@ -101,25 +117,21 @@ export default {
       const swiperSlides = document.querySelectorAll('#layout-wish .swiper-slide');
       [].forEach.call(swiperSlides, (slide, slideIndex) => {
         slide.style.setProperty('width', `${ width }px`);
-        this.swiperRef.slidesGrid[slideIndex] = slideIndex * width;
-        this.swiperRef.snapGrid[slideIndex] = slideIndex * width;
-        this.swiperRef.slidesSizesGrid[slideIndex] = width;
+        _.set(this.swiperRef, `slidesGrid[${ slideIndex }]`, slideIndex * width);
+        _.set(this.swiperRef, `snapGrid[${ slideIndex }]`, slideIndex * width);
+        _.set(this.swiperRef, `slidesSizesGrid[${ slideIndex }]`, width);
       });
     },
 
     activeIndexChange({ realIndex }) {
       this.slideIndex = realIndex;
       const indexType = (realIndex - 1 + this.wishesTypesList.length) % this.wishesTypesList.length;
-      this.$emit('changeWishType', this.wishesTypesList[indexType].icon);
+      this.$emit('changeWishType', this.wishesTypesList[indexType]);
     }
   },
 
   mounted() {
-    this.swiperRef = this.$refs.swiper.swiperRef;
-    this.slideLength = this.swiperRef?.slides?.length || 0;
-    const slideIndex = (this.slideStartIndex + 1) % this.wishesTypesList.length;
-    this.swiperRef.slideTo(slideIndex, 0);
-    this.$nextTick(this.setSlidesSize);
+    this.init();
   },
 };
 </script>
