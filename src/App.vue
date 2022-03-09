@@ -7,7 +7,7 @@
       maxHeight: isDesktop ? `${ containerHeight }px` : '100vh',
     }"
   >
-    <Icon class="flower" type="flower-tulip" :size="22"/>
+    <Icon class="flower" type="woman-head" :size="22"/>
 
     <Icon v-if="!isPageLoad" type="time-oclock" class="loader" :size="100" rotate/>
 
