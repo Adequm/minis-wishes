@@ -18,7 +18,11 @@
 
       <div class="container__text">
         <span v-text="text"/>
-        <span style="color: var(--text-color)" v-text="translate('display.description')"/>
+        <span 
+          v-if="!isHideDisplayDescription"
+          style="color: var(--text-color)" 
+          v-text="translate('display.description')"
+        />
       </div>
     </div>
   </div>
@@ -42,6 +46,7 @@ export default {
     text: String,
     icon: String,
     open: Boolean,
+    isHideDisplayDescription: Boolean,
   },
 };
 </script>

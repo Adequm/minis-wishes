@@ -16,6 +16,7 @@
             :text="text" 
             :icon="icon"
             :open="icon == changedWish.type"
+            :isHideDisplayDescription="changedWish.type && icon !== changedWish.type"
             @click="$emit('changeWish')"
             @openModal="$emit('openModal', $event)"
           />
