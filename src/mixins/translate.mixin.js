@@ -28,7 +28,7 @@ export default {
 
     translateChain({ translateJSON, minisLang, translateErrorMessage }) {
       return function chain(data, path, def) {
-        const translateData = path ? _.get(data, path, def || translateErrorMessage) : data;
+        const translateData = path || _.isNumber(path) ? _.get(data, path, def || translateErrorMessage) : data;
         return (chainPath, def) => chainPath 
           ? chain(translateData, chainPath, def) 
           : translateData;
