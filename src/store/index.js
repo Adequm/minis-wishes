@@ -12,7 +12,7 @@ const store = {};
 Vue.use(Vuex);
 
 store.state = () => ({
-  projectKey: projectKey.split('-').slice(-1)[0],
+  projectKey: projectKey.split('-').slice(1).join('-'),
   wishes: {},
   wishesTypes,
   wishType: 'prawn',
