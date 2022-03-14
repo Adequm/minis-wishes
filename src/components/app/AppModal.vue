@@ -1,6 +1,10 @@
 <template>
   <div class="modal" v-if="value">
-    <div class="modal__background" @click="$emit('input', null)"/>
+    <div 
+      class="modal__background" 
+      :style="{ borderRadius: isRoundedBorder ? '10px' : 0 }"
+      @click="$emit('input', null)"
+    />
     <div class="modal__content">
       <slot/>
     </div>
@@ -13,6 +17,7 @@ export default {
 
   props: {
     value: String,
+    isRoundedBorder: Boolean,
   },
 }
 </script>
@@ -57,11 +62,5 @@ export default {
     justify-content: center;
     align-items: center;
   }
-}
-
-@media screen and (min-width: 768px) {
-.modal__background {
-  border-radius: 10px;
-}
 }
 </style>

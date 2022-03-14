@@ -12,6 +12,7 @@ const store = {};
 Vue.use(Vuex);
 
 store.state = () => ({
+  isFullscreen: false,
   projectKey: projectKey.split('-').slice(1).join('-'),
   wishes: {},
   wishesTypes,
@@ -49,6 +50,7 @@ store.getters = {
 
 
 store.mutations = {
+  switchFullscreen: state => Vue.set(state, 'isFullscreen', !state.isFullscreen),
   changeWishType: (state, type) => Vue.set(state, 'wishType', type),
   changeWish: (state, wish) => Vue.set(state, 'changedWish', wish),
   addWishesByLang(state, { wishes, lang }) {
@@ -59,10 +61,18 @@ store.mutations = {
 
 
 const persistedMinis = [
-  'minis.minisThemeMain', 'minis.minisThemeSpecial', 'minis.minisLang',
-  'minis.themesJSON', 'minis.translateJSON', 'minis.minisJSON',
+  'minis.minisThemeMain', 
+  'minis.minisThemeSpecial', 
+  'minis.minisLang',
+  'minis.themesJSON', 
+  'minis.translateJSON', 
+  'minis.minisJSON',
 ];
-const persistedLocal = ['wishType', 'changedWish'];
+const persistedLocal = [
+  'isFullscreen',
+  'wishType', 
+  'changedWish',
+];
 store.modules = { minis: minisModule };
 store.plugins = [
   createMutationsSharer({ predicate: () => [...persistedMinis, ...persistedLocal] }),
