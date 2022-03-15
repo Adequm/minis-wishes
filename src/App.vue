@@ -8,9 +8,9 @@
       maxHeight: isDesktop ? `${ containerHeight }px` : '100vh',
     }"
   >
-    <Icon class="flower" type="woman-head" :size="22"/>
+    <Icon class="woman" type="woman-head" :size="22"/>
 
-    <Icon v-if="!isPageLoad" type="time-oclock" class="loader" :size="100" rotate/>
+    <AppLoader v-if="!isPageLoad" :size="100" rotate/>
 
     <div v-else class="minis__wrapper">
       <SettingsDesktop
@@ -76,7 +76,7 @@ import _ from 'lodash';
 
 import LayoutContent from './components/LayoutContent';
 
-import { Icon, AppModal, SettingsDesktop, SettingsMobile } from '@minis-core/components';
+import { Icon, AppLoader, AppModal, SettingsDesktop, SettingsMobile } from '@minis-core/components';
 import { minisMixin, resizeMixin, faviconMixin, translateMixin } from '@minis-core/mixins';
 import { mapState, mapGetters, mapMutations } from 'vuex';
 
@@ -86,6 +86,7 @@ export default {
     AppModal,
     SettingsDesktop,
     SettingsMobile,
+    AppLoader,
     Icon,
   },
 
@@ -167,7 +168,7 @@ body {
   min-height: 100vh;
   overflow: hidden;
 
-  .flower {
+  .woman {
     position: absolute !important;
     bottom: 10px;
     left: 10px;
@@ -177,13 +178,6 @@ body {
     &:hover {
       opacity: 1;
     }
-  }
-
-  .loader {
-    height: 100%;
-    margin: auto;
-    display: block;
-    opacity: .5;
   }
 
   .container {
