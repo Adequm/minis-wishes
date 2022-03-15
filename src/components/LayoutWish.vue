@@ -36,7 +36,7 @@ import _ from 'lodash';
 
 import { Swiper, SwiperSlide } from 'swiper-vue2';
 import DisplayWish from './DisplayWish';
-import SlideButtons from './app/SlideButtons';
+import { SlideButtons } from '@minis-core/components';
 
 export default {
   name: 'LayoutWish',

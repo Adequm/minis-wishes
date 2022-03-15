@@ -63,9 +63,9 @@
 
 <script>
 import _ from 'lodash';
-import Icon from './app/Icon';
 import LayoutWish from './LayoutWish';
 
+import { Icon } from '@minis-core/components';
 import { translateMixin } from '@minis-core/mixins';
 
 import { mapState, mapGetters, mapMutations } from 'vuex';
