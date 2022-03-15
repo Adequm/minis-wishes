@@ -6,7 +6,7 @@ import _ from 'lodash';
 
 const projectKey = location.pathname.split('/')[1];
 import wishesTypes from '../assets/wishesTypes.json';
-import minisModule from './minis';
+import { vuexMinisModule as minisModule, persistedMinis } from '@minis-core/mixins';
 
 const store = {};
 Vue.use(Vuex);
@@ -60,14 +60,6 @@ store.mutations = {
 };
 
 
-const persistedMinis = [
-  'minis.minisThemeMain', 
-  'minis.minisThemeSpecial', 
-  'minis.minisLang',
-  'minis.themesJSON', 
-  'minis.translateJSON', 
-  'minis.minisJSON',
-];
 const persistedLocal = [
   'isFullscreen',
   'wishType', 
