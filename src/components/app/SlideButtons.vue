@@ -3,13 +3,21 @@
 
     <button 
       class="slide-button" 
-      :disabled="lodash.isBoolean(isBeginning) && isBeginning"
+      :disabled="startDisabled"
       @click="$emit('slidePrev') && setSlide(-1)">
       <Icon type="angle-double-small-left"/>
     </button>
     <button 
+      v-if="showCenterButton && centerButtonIcon"
+      class="slide-button slide-button-center"
+      :style="{ color: centerButtonColor }"
+      :disabled="centerButtonDisabled"
+      @click="$emit('clickToCenterButton')">
+      <Icon :type="centerButtonIcon" :size="centerButtonSize"/>
+    </button>
+    <button 
       class="slide-button" 
-      :disabled="lodash.isBoolean(isEnd) && isEnd"
+      :disabled="endDisabled"
       @click="$emit('slideNext') && setSlide(1)">
       <Icon type="angle-double-small-right"/>
     </button>
@@ -45,11 +53,20 @@ export default {
       type: Boolean,
       default: null,
     },
+    showCenterButton: Boolean,
+    centerButtonDisabled: Boolean,
+    centerButtonIcon: String,
+    centerButtonSize: {
+      type: Number,
+      default: () => 20,
+    },
+    centerButtonColor: String
   },
 
-  data: () => ({
-    lodash: _,
-  }),
+  computed: {
+    startDisabled: ths => _.isBoolean(ths.isBeginning) && ths.isBeginning,
+    endDisabled: ths => _.isBoolean(ths.isEnd) && ths.isEnd,
+  },
 
   methods: {
    setSlide(shift) {
@@ -64,8 +81,7 @@ export default {
 .slide-buttons__container {
   gap: 10px; 
   padding: 10px;
-  display: grid;
-  grid-auto-flow: column;
+  display: flex;
   .slide-button {
     display: flex;
     justify-content: center;
@@ -75,13 +91,17 @@ export default {
     border: none;
     outline: none;
     cursor: pointer;
+    width: 100%;
+    &-center {
+      width: 80px;
+    }
     &:not(&[disabled]):hover {
       color: var(--special-color);
       opacity: .8;
     }
     &[disabled] {
       cursor: default;
-      color: var(--main-bg-color);
+      color: var(--main-bg-color) !important;
     }
     &:focus {
       box-shadow: inset 0 0 0 1px var(--special-color);
