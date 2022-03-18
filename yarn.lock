@@ -998,14 +998,14 @@
 
 "@minis-core/components@git+https://github.com/Adequm/minis-core-components.git":
   version "1.0.0"
-  resolved "git+https://github.com/Adequm/minis-core-components.git#d976fcaed75b5c8757f576ae1df6b38c1cf41b86"
+  resolved "git+https://github.com/Adequm/minis-core-components.git#63e7afaa22cd66f00541684ffcafc3e919e035e3"
   dependencies:
     lodash "^4.17.21"
     vue "^3.2.31"
 
 "@minis-core/mixins@git+https://github.com/Adequm/minis-core-mixins.git":
   version "1.0.0"
-  resolved "git+https://github.com/Adequm/minis-core-mixins.git#39050ef2082fb0cf199bcdedf721dd4cf8ef68c9"
+  resolved "git+https://github.com/Adequm/minis-core-mixins.git#e1064d8274a5cd51420ab10d356c7ec7dba6f14a"
   dependencies:
     lodash "^4.17.21"
     vue "^3.2.31"
