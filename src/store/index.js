@@ -14,6 +14,7 @@ Vue.use(Vuex);
 
 store.state = () => ({
   [fullscreenKey]: false,
+  switchFullscreenKey: `switch_${fullscreenKey}`,
   projectKey,
   wishes: {},
   wishesTypes,
@@ -53,7 +54,7 @@ store.getters = {
 
 
 store.mutations = {
-  switchFullscreen: state => Vue.set(state, fullscreenKey, !state[fullscreenKey]),
+  [`switch_${fullscreenKey}`]: state => Vue.set(state, fullscreenKey, !state[fullscreenKey]),
   changeWishType: (state, type) => Vue.set(state, 'wishType', type),
   changeWish: (state, wish) => Vue.set(state, 'changedWish', wish),
   addWishesByLang(state, { wishes, lang }) {
