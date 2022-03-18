@@ -53,7 +53,7 @@ store.getters = {
 
 
 store.mutations = {
-  switchFullscreen: state => Vue.set(state, 'isFullscreen', !state.isFullscreen),
+  switchFullscreen: state => Vue.set(state, fullscreenKey, !state[fullscreenKey]),
   changeWishType: (state, type) => Vue.set(state, 'wishType', type),
   changeWish: (state, wish) => Vue.set(state, 'changedWish', wish),
   addWishesByLang(state, { wishes, lang }) {
