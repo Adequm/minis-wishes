@@ -4,8 +4,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/minis-wishes/css/app.713caf7a.css"
   },
   {
-    "revision": "8083668f850822bf1b03",
-    "url": "/minis-wishes/css/chunk-vendors.58ed50da.css"
+    "revision": "e96029ac350717621a85",
+    "url": "/minis-wishes/css/chunk-vendors.1f2f3148.css"
   },
   {
     "revision": "706b86fa881ef644c6af4b9b66acdc98",
@@ -204,7 +204,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/minis-wishes/img/confetti.14a9dfc6.svg"
   },
   {
-    "revision": "5477ca8761fc1792c79cb442fb654c96",
+    "revision": "e59120619548377fcd69d2d28f96ce14",
     "url": "/minis-wishes/index.html"
   },
   {
@@ -212,8 +212,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/minis-wishes/js/app.f9c2c119.js"
   },
   {
-    "revision": "8083668f850822bf1b03",
-    "url": "/minis-wishes/js/chunk-vendors.69bce631.js"
+    "revision": "e96029ac350717621a85",
+    "url": "/minis-wishes/js/chunk-vendors.34840b97.js"
   },
   {
     "revision": "ed1d0a1bbbd436d0885b19b360ee9723",
