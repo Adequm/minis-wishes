@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/minis-wishes/precache-manifest.61e84cf1dd28c37439ca0c9cdaff930d.js"
+  "/minis-wishes/precache-manifest.05a9ea66cf063ab16b84ab96e1f83051.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "wishes"});
