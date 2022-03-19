@@ -268,9 +268,9 @@
     js-tokens "^4.0.0"
 
 "@babel/parser@^7.16.4":
-  version "7.17.7"
-  resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.17.7.tgz#fc19b645a5456c8d6fdb6cecd3c66c0173902800"
-  integrity sha512-bm3AQf45vR4gKggRfvJdYJ0gFLoCbsPxiFLSH6hTVYABptNHY6l9NrhnucVjQ/X+SPtLANT9lc0fFhikj+VBRA==
+  version "7.17.8"
+  resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.17.8.tgz#2817fb9d885dd8132ea0f8eb615a6388cca1c240"
+  integrity sha512-BoHhDJrJXqcg+ZL16Xv39H9n+AqJ4pcDrQBGZN+wHxIysrLZ3/ECwCBUch/1zUNhnsXULcONU3Ei5Hmkfk6kiQ==
 
 "@babel/parser@^7.16.7", "@babel/parser@^7.17.3":
   version "7.17.3"
@@ -998,14 +998,14 @@
 
 "@minis-core/components@git+https://github.com/Adequm/minis-core-components.git":
   version "1.0.0"
-  resolved "git+https://github.com/Adequm/minis-core-components.git#63e7afaa22cd66f00541684ffcafc3e919e035e3"
+  resolved "git+https://github.com/Adequm/minis-core-components.git#94e1fdf80f5f2acd0ae655786ae6db2a87e5b645"
   dependencies:
     lodash "^4.17.21"
     vue "^3.2.31"
 
 "@minis-core/mixins@git+https://github.com/Adequm/minis-core-mixins.git":
   version "1.0.0"
-  resolved "git+https://github.com/Adequm/minis-core-mixins.git#e1064d8274a5cd51420ab10d356c7ec7dba6f14a"
+  resolved "git+https://github.com/Adequm/minis-core-mixins.git#8fba103f36bd8e9e88d19d0df89ec998f6ff192b"
   dependencies:
     lodash "^4.17.21"
     vue "^3.2.31"
@@ -6824,9 +6824,9 @@ postcss@^7.0.0, postcss@^7.0.1, postcss@^7.0.14, postcss@^7.0.27, postcss@^7.0.3
     source-map "^0.6.1"
 
 postcss@^8.1.10:
-  version "8.4.11"
-  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.11.tgz#a06229f23820b4ddd46500a3e38dbca1598a8e8d"
-  integrity sha512-D+jFLnT0ilGfy4CVBGbC+XE68HkVpT8+CUkDrcSpgxmo4RKco2uaZ4kIoyVGEm+m8KN/+Vwgs8MtpNbQ3/ma9w==
+  version "8.4.12"
+  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.12.tgz#1e7de78733b28970fa4743f7da6f3763648b1905"
+  integrity sha512-lg6eITwYe9v6Hr5CncVbK70SoioNQIq81nsaG86ev5hAidQvmOeETBqs7jm43K2F5/Ley3ytDtriImV6TpNiSg==
   dependencies:
     nanoid "^3.3.1"
     picocolors "^1.0.0"
