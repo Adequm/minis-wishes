@@ -4,7 +4,9 @@ import createPersistedState from 'vuex-persistedstate';
 import createMutationsSharer from 'vuex-shared-mutations';
 import _ from 'lodash';
 
-const projectKey = location.pathname.split('/')[1].split('-').slice(1).join('-');
+const projectKeyOnPathname = location.pathname.split('/')[1].split('-').slice(1).join('-');
+const projectKeyOnHash = location.hash.replace(/(#|\/)/g, '');
+const projectKey = projectKeyOnPathname || projectKeyOnHash;
 const switchFullscreenKey = `switchFullscreen_${projectKey}`;
 import wishesTypes from '../assets/wishesTypes.json';
 import { vuexMinisModule as minisModule, persistedMinis } from '@minis-core/mixins';
