@@ -9,6 +9,7 @@ const projectKeyOnHash = location.hash.replace(/(#|\/)/g, '');
 const projectKey = projectKeyOnPathname || projectKeyOnHash;
 const switchFullscreenKey = `switchFullscreen_${projectKey}`;
 import wishesTypes from '../assets/wishesTypes.json';
+import wishesIcons from '../assets/wishesIcons.json';
 import { vuexMinisModule as minisModule, persistedMinis } from '@minis-core/mixins';
 
 const store = {};
@@ -17,10 +18,10 @@ Vue.use(Vuex);
 store.state = () => ({
   isFullscreen: false,
   switchFullscreenKey,
-  publicPath: '/minis-wishes/',
   projectKey,
   wishes: {},
   wishesTypes,
+  wishesIcons,
   wishType: 'prawn',
   changedWish: {
     textId: null,
@@ -31,10 +32,6 @@ store.state = () => ({
 
 
 store.getters = {
-  appPath({ publicPath }) {
-    return 'https://adequm.github.io' + publicPath;
-    return window.location.origin + publicPath;
-  },
   wishes({ wishes, minis: { minisLang } }) {
     return _.get(wishes, minisLang, []);
   },

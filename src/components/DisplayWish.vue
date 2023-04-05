@@ -2,9 +2,8 @@
   <div class="container" @click="$emit('click')">
     <div class="container__image" :icon="icon" :class="{ open }">
 
-      <img :src="getIconPath(icon)"/>
-      <img :src="getIconPath(icon)"/>
-
+      <img :src="wishesIcons[icon]"/>
+      <img :src="wishesIcons[icon]"/>
 
       <div class="container__wish">
         <span>
@@ -31,7 +30,7 @@
 <script>
 import { Icon } from '@minis-core/components';
 import { translateMixin } from '@minis-core/mixins';
-import { mapGetters } from 'vuex';
+import { mapState } from 'vuex';
 
 export default {
   name: 'DisplayWish',
@@ -50,13 +49,7 @@ export default {
   },
 
   computed: {
-    ...mapGetters(['appPath']),
-  },
-
-  methods: {
-    getIconPath(iconName) {
-      return `${this.appPath}icons/${iconName}.png?${Date.now()}`;
-    },
+    ...mapState(['wishesIcons']),
   },
 };
 </script>
