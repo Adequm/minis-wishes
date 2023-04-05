@@ -1,7 +1,7 @@
 <template>
   <div 
     class="container" 
-    :class="{ fullscreen: isFullscreen }"
+    :class="{ fullscreen: isFullscreen || isFrame }"
     :style="{ 
       height: `${ innerHeight }px`, 
       maxWidth: isDesktop ? `${ containerWidth }px` : '100vw',
@@ -14,7 +14,7 @@
 
     <div v-else class="minis__wrapper">
       <SettingsDesktop
-        v-if="isDesktop"
+        v-if="isDesktop && !isFrame"
         :themeIcon="themeMain.icon"
         :appHeight="appHeight"
         :appWidth="appWidth"
@@ -33,6 +33,7 @@
         :appWidth="appWidth" 
         :appHeight="appHeight"
         :bodyHeight="innerHeight"
+        :isFrame="isFrame"
         :isDesktop="isDesktop"
         :isWidthMore768="isWidthMore768"
         :style="{ filter: openedModalName ? 'blur(2px)' : 'none' }"
@@ -48,6 +49,7 @@
           v-if="openedModalName == 'settings'"
           :themeIcon="themeMain.icon"
           :isWidthMore768="isWidthMore768"
+          :translate="translate"
           @switchTheme="switchTheme"
           @switchLang="switchLang"
           @switchFullscreen="$store.commit(switchFullscreenKey)"

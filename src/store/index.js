@@ -17,6 +17,7 @@ Vue.use(Vuex);
 store.state = () => ({
   isFullscreen: false,
   switchFullscreenKey,
+  publicPath: '/minis-wishes/',
   projectKey,
   wishes: {},
   wishesTypes,
@@ -30,6 +31,10 @@ store.state = () => ({
 
 
 store.getters = {
+  appPath({ publicPath }) {
+    return 'https://adequm.github.io' + publicPath;
+    return window.location.origin + publicPath;
+  },
   wishes({ wishes, minis: { minisLang } }) {
     return _.get(wishes, minisLang, []);
   },

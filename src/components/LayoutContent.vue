@@ -49,7 +49,7 @@
           v-text="checkTimeFormat || translateDef('change')"
         />
         <div 
-          v-if="!isDesktop" 
+          v-if="!isDesktop && !isFrame" 
           class="minis__button minis__button-settings"
           @click="$emit('openModal', 'settings')"
         >
@@ -86,6 +86,7 @@ export default {
     bodyHeight: Number,
     isDesktop: Boolean,
     isWidthMore768: Boolean,
+    isFrame: Boolean,
   },
 
   data: () => ({

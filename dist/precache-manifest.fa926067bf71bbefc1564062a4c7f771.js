@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "9d310e3b7e02ee1cb4f3",
-    "url": "/minis-wishes/css/app.713caf7a.css"
+    "revision": "f5c24d390d12a169846d",
+    "url": "/minis-wishes/css/app.a056564e.css"
   },
   {
-    "revision": "129fde5699ca4f6542b7",
-    "url": "/minis-wishes/css/chunk-vendors.07fba5b2.css"
+    "revision": "c2a2edcd72685f51846b",
+    "url": "/minis-wishes/css/chunk-vendors.0739b5cf.css"
   },
   {
     "revision": "706b86fa881ef644c6af4b9b66acdc98",
@@ -204,16 +204,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/minis-wishes/img/confetti.14a9dfc6.svg"
   },
   {
-    "revision": "fdef5b086156e1b7639a224856e2b18d",
+    "revision": "43c6f9145a527cafb2d8d400159c2b6b",
     "url": "/minis-wishes/index.html"
   },
   {
-    "revision": "9d310e3b7e02ee1cb4f3",
-    "url": "/minis-wishes/js/app.104fe23a.js"
+    "revision": "f5c24d390d12a169846d",
+    "url": "/minis-wishes/js/app.409f6784.js"
   },
   {
-    "revision": "129fde5699ca4f6542b7",
-    "url": "/minis-wishes/js/chunk-vendors.7968bdf0.js"
+    "revision": "c2a2edcd72685f51846b",
+    "url": "/minis-wishes/js/chunk-vendors.4d7756d1.js"
   },
   {
     "revision": "ed1d0a1bbbd436d0885b19b360ee9723",
