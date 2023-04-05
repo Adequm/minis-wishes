@@ -2,8 +2,8 @@
   <div class="container" @click="$emit('click')">
     <div class="container__image" :icon="icon" :class="{ open }">
 
-      <img :src="wishesIcons[icon]"/>
-      <img :src="wishesIcons[icon]"/>
+      <div class="img" :style="{ backgroundImage: `url(${wishesIcons[icon]})` }"/>
+      <div class="img" :style="{ backgroundImage: `url(${wishesIcons[icon]})` }"/>
 
       <div class="container__wish">
         <span>
@@ -86,7 +86,7 @@ export default {
       opacity: 1;
     }
 
-    > img {
+    > .img {
       content: "";
       position: absolute;
       width: inherit;
@@ -98,13 +98,13 @@ export default {
       transition: transform 1s;
     }
 
-    > img:nth-child(1) {
+    > .img:nth-child(1) {
       top: 0;
       clip-path: polygon(
         0 0, 100% 0, 100% calc(55% + 1px), 80% calc(45% + 1px), 60% calc(55% + 1px), 
         40% calc(45% + 1px), 20% calc(55% + 1px), 0 calc(45% + 1px));
     }
-    > img:nth-child(2) {
+    > .img:nth-child(2) {
       bottom: 0;
       clip-path: polygon(0 45%, 20% 55%, 40% 45%, 60% 55%, 80% 45%, 100% 55%, 100% 100%, 0 100%);
     }

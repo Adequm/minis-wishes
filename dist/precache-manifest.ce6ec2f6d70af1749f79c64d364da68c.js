@@ -1,7 +1,7 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "18b1ceaf848f46363659",
-    "url": "/minis-wishes/css/app.979c180a.css"
+    "revision": "137538fae1913ca62302",
+    "url": "/minis-wishes/css/app.8f60d3c9.css"
   },
   {
     "revision": "c2a2edcd72685f51846b",
@@ -204,12 +204,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/minis-wishes/img/confetti.14a9dfc6.svg"
   },
   {
-    "revision": "437d284dc545ab4f357de9d4a0645a41",
+    "revision": "ef304aba96c926bcb2682b596fb5a077",
     "url": "/minis-wishes/index.html"
   },
   {
-    "revision": "18b1ceaf848f46363659",
-    "url": "/minis-wishes/js/app.91779c32.js"
+    "revision": "137538fae1913ca62302",
+    "url": "/minis-wishes/js/app.4ae0372c.js"
   },
   {
     "revision": "c2a2edcd72685f51846b",
