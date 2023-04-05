@@ -145,7 +145,7 @@ export default {
   height: 100%;
   background: var(--main-bg-color);
   &:hover {
-    outline: 1px solid var(--special-color);
+    box-shadow: inset 0 0 0 1px var(--special-color);
   }
 
   &::after, &::before {

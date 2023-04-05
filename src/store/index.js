@@ -9,7 +9,6 @@ const projectKeyOnHash = location.hash.replace(/(#|\/)/g, '');
 const projectKey = projectKeyOnPathname || projectKeyOnHash;
 const switchFullscreenKey = `switchFullscreen_${projectKey}`;
 import wishesTypes from '../assets/wishesTypes.json';
-import wishesIcons from '../assets/wishesIcons.json';
 import { vuexMinisModule as minisModule, persistedMinis } from '@minis-core/mixins';
 
 const store = {};
@@ -21,7 +20,6 @@ store.state = () => ({
   projectKey,
   wishes: {},
   wishesTypes,
-  wishesIcons,
   wishType: 'prawn',
   changedWish: {
     textId: null,

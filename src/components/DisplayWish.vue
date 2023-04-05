@@ -2,8 +2,9 @@
   <div class="container" @click="$emit('click')">
     <div class="container__image" :icon="icon" :class="{ open }">
 
-      <div class="img" :style="{ backgroundImage: `url(${wishesIcons[icon]})` }"/>
-      <div class="img" :style="{ backgroundImage: `url(${wishesIcons[icon]})` }"/>
+      <div class="img" :style="{ backgroundImage: `url(./icons/${icon}.png)` }"/>
+      <div class="img" :style="{ backgroundImage: `url(./icons/${icon}.png)` }"/>
+      
 
       <div class="container__wish">
         <span>
@@ -30,7 +31,6 @@
 <script>
 import { Icon } from '@minis-core/components';
 import { translateMixin } from '@minis-core/mixins';
-import { mapState } from 'vuex';
 
 export default {
   name: 'DisplayWish',
@@ -46,10 +46,6 @@ export default {
     icon: String,
     open: Boolean,
     isHideDisplayDescription: Boolean,
-  },
-
-  computed: {
-    ...mapState(['wishesIcons']),
   },
 };
 </script>
