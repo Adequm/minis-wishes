@@ -29,7 +29,19 @@
     "shamrock": "Клевер",
     "strawberry": "Клубничка",
     "tulip": "Тюльман",
-    "unicorn": "Единорог"
+    "unicorn": "Единорог",
+    "backpack": "Рюкзак",
+    "corn": "Кукуруза",
+    "crown": "Кепка",
+    "egg": "Иичко",
+    "energy": "Батончик",
+    "fish": "Рыбка",
+    "guitar": "Скрипка",
+    "honey": "Мёд",
+    "lemon": "Лимон",
+    "pizza": "Пицка",
+    "tea": "Чай",
+    "watermelon": "Арбуз"
   },
   "en": {
     "apple": "Apple",
@@ -61,6 +73,18 @@
     "shamrock": "Shamrock",
     "strawberry": "Strawberry",
     "tulip": "Tulip",
-    "unicorn": "Unicorn"
+    "unicorn": "Unicorn",
+    "backpack": "Backpack",
+    "corn": "Corn",
+    "crown": "Crown",
+    "egg": "Egg",
+    "energy": "Energy",
+    "fish": "Fish",
+    "guitar": "Guitar",
+    "honey": "Мёд",
+    "lemon": "Lemon",
+    "pizza": "Pizza",
+    "tea": "Tea",
+    "watermelon": "Watermelon"
   }
 }
